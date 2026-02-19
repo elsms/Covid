@@ -47,14 +47,16 @@ Moreover, the **Fitted vs. Actual Values plot** shows that MSCI Hong Kong return
 <img width="587" height="455" alt="image" src="https://github.com/user-attachments/assets/88168c8c-d1f6-4752-a815-966154b45467" />
 </div>
 
-Variance inflation factor (VIF) diagnostics indicate that the time dummy may contribute to multicollinearity. Given its insignificance, it was excluded from the model. However, the reduced specification produces identical results, confirming its lack of explanatory power.
+Variance inflation factor (VIF) diagnostics suggested that the time dummy may contribute to multicollinearity. Given its statistical insignificance, it was excluded from the model. The reduced specification yields virtually identical results (R² = 0.890 vs. 0.891 in the original model), confirming that the time dummy adds no explanatory power.
 
 ### ARCH and GARCH models
-
+* The ARCH(1) estimation indicates that the lagged squared residual does not significantly affect conditional variance (α₁ = 0.1822, *p*-value = 0.162). Hence, there is no statistical evidence of ARCH effects in MSCI Hong Kong returns. Although the variance constant is significant, volatility does not appear to depend on past shocks, suggesting that a simple ARCH(1) specification may be inadequate.
+* The GARCH(1,1) model exhibits strong explanatory power (R² = 0.890). Hang Seng Index returns and the MSCI COVID indicator are positively and statistically significantly associated with MSCI Hong Kong returns, whereas outbreak severity and recovery variables are insignificant. Variables with zero variance were excluded from the estimation.
+In the variance equation, the ARCH term is insignificant, while the GARCH term is positive and highly significant, indicating substantial volatility persistence but no short-run shock effects. Overall, conditional volatility is primarily driven by past volatility rather than past squared innovations.
 
 # Conclusion 
-The final results of the estimated models are presented in the table below.
-| Variable | Meaning |
+The final results of the multiple linear regression model are presented in the table below.
+| Variable | Summary of Findings |
 |----------|--------------------|
 | Stringency Index | Positive but statistically non-significant. This contrasts with prior studies that found government measures, such as lockdowns and social distancing, mitigated pandemic impacts or positively influenced stock markets (Beer, Maniora, and Pott, 2023; Deng, Xu, and Lee, 2022; Guven et al., 2022; Jiang et al., 2022).  |
 | Hang Seng Returns | Highly significant and positive, confirming that Hong Kong's market strongly influenced MSCI returns. This aligns with literature documenting regional market co-movement and spillover effects during the pandemic (Al-Awadhi, 2020; Jin, Lu, and Zhang, 2022).  |
@@ -64,3 +66,5 @@ The final results of the estimated models are presented in the table below.
 | Recovery | Statistically non-significant, contrary to literature suggesting that recoveries positively influence markets, albeit with weaker effects than deaths or cases (Basuony et al., 2021).   |
 | Time Dummy | Not statistically significant, indicating MSCI returns did not differ systematically between pre-COVID and pandemic periods. This contrasts with studies reporting negative shifts in market performance during the pandemic (Harjoto, Rossi, and Paglia, 2021; Liu et al., 2020; Shehzad, Xiaoxing, and Kazouz, 2020).   |
 | MSCI COVID-19 | Highly significant and positive, suggesting that MSCI returns became more sensitive during the pandemic. This is consistent with studies documenting increased responsiveness of MSCI and other global equity indices to pandemic-related shocks (Ashraf, 2020; Bai et al., 2023).   |
+
+The multiple linear regression highlights the mean effects of COVID-19 variables on MSCI Hong Kong returns, with Hang Seng returns and the MSCI COVID indicator showing positive and statistically significant associations, while outbreak severity, recovery, and the time dummy are insignificant. Complementing this, the GARCH(1,1) model reveals that volatility is driven primarily by past conditional variance rather than immediate shocks, indicating strong volatility persistence. Together, the models suggest that while mean returns are influenced by market co-movements and pandemic sensitivity, the dynamics of volatility are governed by persistent market conditions rather than lagged shocks.
