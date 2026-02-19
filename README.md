@@ -6,10 +6,8 @@ This notebook explores whether COVID-19 affected the Hong Kong MSCI Index return
 
 The group assignment involved selecting one of two MSCI indexes (Hong Kong or South Korea) and addressing related research questions. This notebook presents my individual contribution, analyzing the impact of COVID-19 on the chosen index’s returns and comparing the findings with existing literature.
 
-
-
 # Data 
-
+The [data](Data) used in this analysis was sourced from the [Bloomberg Terminal](https://www.bloomberg.com/professional/products/bloomberg-terminal/). 
 
 # Methodology 
 
