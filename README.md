@@ -27,10 +27,11 @@ The dataset used in the analysis entails the following variables.
 
 ### Model Specification 
 
-To test for a COVID-19 effect on the dependent variable, two models are specified:
+To test for a COVID-19 effect on the dependent variable, the following models are specified:
 
 * A **simple linear regression** with the *time dummy* variable as the only explanatory variable.
 * A **multiple linear regression** including all previously listed variables.
+* **ARCH** and **GARCH** models to capture volatility dynamics. 
 
 # Key Findings 
 
@@ -38,14 +39,28 @@ To test for a COVID-19 effect on the dependent variable, two models are specifie
 The *p*-value on the time dummy exceeds the 5% significance level, indicating it's not statistically significant. Consequently, the test fails to reject the null hypothesis that MSCI Hong Kong Index performance is the same in the pre-COVID and COVID-19 preiods, suggesting no no significant relationship between the time dummy and index returns.
 
 ### Multiple Linear Regression 
-The time dummy remains insignificant. In contrast, Hang Seng Index returns, COVID-19 deaths, the Spread Index, and the MSCI COVID-19 indicator are statistically significant. Hang Seng returns and the MSCI COVID-19 indicator are positively associated with MSCI Hong Kong Index returns, while COVID-19 deaths and the Spread Index have negative effects.
+The time dummy is statistically insignificant. In contrast, Hang Seng Index returns, COVID-19 deaths, the Spread Index, and the MSCI COVID-19 indicator are significant determinants of MSCI Hong Kong Index returns. Hang Seng Index returns and the MSCI COVID-19 indicator are positively associated with returns, whereas COVID-19 deaths and the Spread Index have negative effects.
 
-Moreoveer, the **fitted versus actual values plot** shows that MSCI Returns experienced frequent fluctuations during 2020, which are largely captured by the last model. From 2021 onward, MSCI performance declined more persistently, with reduced volatility for much of the period, followed by sharp movements toward the end of 2022, contrasting with the more cyclical pattern observed from 2015 to 2020. Overall, the model captures broad trends over the sample period; however, it performs less accurately during certain sub-periods, particularly between mid-2021 and late 2022. Additionally, the fitted values tend to follow minor fluctuations in the data too closely, suggesting potential in-sample overfitting.
+Moreover, the **Fitted vs. Actual Values plot** shows that MSCI Hong Kong returns experienced frequent fluctuations during 2020, which are largely captured by the first multiple linear regression model. From 2021 onward, MSCI performance declined more persistently, with reduced volatility for much of the period, followed by sharp movements toward the end of 2022, contrasting with the more cyclical pattern observed from 2015 to 2020. Overall, the model captures broad trends over the sample period; however, it performs less accurately during certain sub-periods, particularly between mid-2021 and late 2022. Additionally, the fitted values tend to follow minor fluctuations in the data too closely, suggesting potential in-sample overfitting.
 
 <div align="center">
-<img width="568" height="413" alt="image" src="https://github.com/user-attachments/assets/79d811be-461d-4eaa-9e50-01a7a834ce55" />
+<img width="587" height="455" alt="image" src="https://github.com/user-attachments/assets/88168c8c-d1f6-4752-a815-966154b45467" />
 </div>
 
+Variance inflation factor (VIF) diagnostics indicate that the time dummy may contribute to multicollinearity. Given its insignificance, it was excluded from the model. However, the reduced specification produces identical results, confirming its lack of explanatory power.
+
+### ARCH and GARCH models
 
 
 # Conclusion 
+The final results of the estimated models are presented in the table below.
+| Variable | Meaning |
+|----------|--------------------|
+| Stringency Index | Positive but statistically non-significant. This contrasts with prior studies that found government measures, such as lockdowns and social distancing, mitigated pandemic impacts or positively influenced stock markets (Beer, Maniora, and Pott, 2023; Deng, Xu, and Lee, 2022; Guven et al., 2022; Jiang et al., 2022).  |
+| Hang Seng Returns | Highly significant and positive, confirming that Hong Kong's market strongly influenced MSCI returns. This aligns with literature documenting regional market co-movement and spillover effects during the pandemic (Al-Awadhi, 2020; Jin, Lu, and Zhang, 2022).  |
+| Number of death cases related to COVID-19 | Highly significant and negatively associated with MSCI returns, consistent with prior research showing that rising COVID-19 cases and deaths negatively affected stock markets (Ashraf, 2020; Harjoto et al., 2021). |
+| Outbreak Severity | Statistically non-significant, despite expectations from the literature that more severe outbreaks would depress stock returns (Ashraf, 2020; Harjoto et al., 2021).  |
+| Spread | Statistically significant and negative, confirming that higher infection rates adversely impacted MSCI returns, consistent with previous findings (Ashraf, 2020;Harjoto et al., 2021).  |
+| Recovery | Statistically non-significant, contrary to literature suggesting that recoveries positively influence markets, albeit with weaker effects than deaths or cases (Basuony et al., 2021).   |
+| Time Dummy | Not statistically significant, indicating MSCI returns did not differ systematically between pre-COVID and pandemic periods. This contrasts with studies reporting negative shifts in market performance during the pandemic (Harjoto, Rossi, and Paglia, 2021; Liu et al., 2020; Shehzad, Xiaoxing, and Kazouz, 2020).   |
+| MSCI COVID-19 | Highly significant and positive, suggesting that MSCI returns became more sensitive during the pandemic. This is consistent with studies documenting increased responsiveness of MSCI and other global equity indices to pandemic-related shocks (Ashraf, 2020; Bai et al., 2023).   |
