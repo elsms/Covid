@@ -29,14 +29,23 @@ The dataset used in the analysis entails the following variables.
 
 To test for a COVID-19 effect on the dependent variable, two models are specified:
 
-* a **simple linear regression** with the *time dummy* variable as the only explanatory variable.
-*  a **multiple linear regression** including all previously listed variables.
-
-
-
-
+* A **simple linear regression** with the *time dummy* variable as the only explanatory variable.
+* A **multiple linear regression** including all previously listed variables.
 
 # Key Findings 
+
+### Simple Linear Regression 
+The *p*-value on the time dummy exceeds the 5% significance level, indicating it's not statistically significant. Consequently, the test fails to reject the null hypothesis that MSCI Hong Kong Index performance is the same in the pre-COVID and COVID-19 preiods, suggesting no no significant relationship between the time dummy and index returns.
+
+### Multiple Linear Regression 
+The time dummy remains insignificant. In contrast, Hang Seng Index returns, COVID-19 deaths, the Spread Index, and the MSCI COVID-19 indicator are statistically significant. Hang Seng returns and the MSCI COVID-19 indicator are positively associated with MSCI Hong Kong Index returns, while COVID-19 deaths and the Spread Index have negative effects.
+
+Moreoveer, the **fitted versus actual values plot** shows that MSCI Returns experienced frequent fluctuations during 2020, which are largely captured by the last model. From 2021 onward, MSCI performance declined more persistently, with reduced volatility for much of the period, followed by sharp movements toward the end of 2022, contrasting with the more cyclical pattern observed from 2015 to 2020. Overall, the model captures broad trends over the sample period; however, it performs less accurately during certain sub-periods, particularly between mid-2021 and late 2022. Additionally, the fitted values tend to follow minor fluctuations in the data too closely, suggesting potential in-sample overfitting.
+
+<div align="center">
+<img width="568" height="413" alt="image" src="https://github.com/user-attachments/assets/79d811be-461d-4eaa-9e50-01a7a834ce55" />
+</div>
+
 
 
 # Conclusion 
