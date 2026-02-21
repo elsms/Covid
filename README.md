@@ -54,7 +54,7 @@ Variance inflation factor (VIF) diagnostics suggested that the time dummy may co
 * The GARCH(1,1) model exhibits strong explanatory power (R² = 0.890). Hang Seng Index returns and the MSCI COVID indicator are positively and statistically significantly associated with MSCI Hong Kong returns, whereas outbreak severity and recovery variables are insignificant. Variables with zero variance were excluded from the estimation.
 In the variance equation, the ARCH term is insignificant, while the GARCH term is positive and highly significant, indicating substantial volatility persistence but no short-run shock effects. Overall, conditional volatility is primarily driven by past volatility rather than past squared innovations.
 
-# Conclusion 
+# Conclusions
 The final results of the multiple linear regression model are presented in the table below.
 | Variable | Summary of Findings |
 |----------|--------------------|
